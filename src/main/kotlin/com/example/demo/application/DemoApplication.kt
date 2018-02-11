@@ -19,7 +19,7 @@ class DemoApplication(private val webdriver: Webdriver) : ApplicationRunner {
             println(optionName)
         }
         println("Received non-args:")
-        for (arg in args?.nonOptionArgs) {
+        for (arg in args.nonOptionArgs) {
             println(arg)
         }
     }
