@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
 import org.springframework.stereotype.Component
 
-@SpringBootApplication
 @Import(DemoApplicationConfiguration::class)
+@SpringBootApplication
 class DemoApplication : ApplicationRunner {
     @Autowired
     lateinit var webdriver: Webdriver;
@@ -30,12 +30,16 @@ class DemoApplication : ApplicationRunner {
 }
 
 @Configuration
+@Import(WebdriverConfiguration::class)
 class DemoApplicationConfiguration
+
+@Configuration
+class WebdriverConfiguration
 
 @Component
 class Webdriver {
 
-    init {
+    constructor() {
         println("Webdriver constructor")
     }
 
