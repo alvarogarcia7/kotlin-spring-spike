@@ -30,11 +30,7 @@ class DemoApplication : ApplicationRunner {
 }
 
 @Configuration
-@Import(WebdriverConfiguration::class)
 class DemoApplicationConfiguration
-
-@Configuration
-class WebdriverConfiguration
 
 @Component
 class Webdriver {
