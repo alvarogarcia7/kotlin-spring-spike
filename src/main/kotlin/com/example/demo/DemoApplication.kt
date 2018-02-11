@@ -5,9 +5,9 @@ import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
+import org.springframework.stereotype.Component
 
 @SpringBootApplication
 @Import(DemoApplicationConfiguration::class)
@@ -30,16 +30,12 @@ class DemoApplication : ApplicationRunner {
 }
 
 @Configuration
-class DemoApplicationConfiguration {
+class DemoApplicationConfiguration
 
-    @Bean
-    fun webdriver(): Webdriver {
-        return Webdriver()
-    }
-}
-
+@Component
 class Webdriver {
-    constructor() {
+
+    init {
         println("Webdriver constructor")
     }
 
