@@ -8,6 +8,7 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class DemoApplication : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
+        for (i in 1..10) println("BAD SIDE EFFECT!")
         println("Received args:")
         for (optionName in args?.optionNames!!) {
             println(optionName)
