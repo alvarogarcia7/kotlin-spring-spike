@@ -1,16 +1,17 @@
 package com.example.demo.application
 
 import com.example.demo.BasePackageScan
-import com.example.demo.configuration.DemoApplicationConfiguration
 import com.example.demo.infrastructure.Webdriver
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
-import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Import
+import org.springframework.context.annotation.ComponentScan
+import org.springframework.context.annotation.Configuration
 
-@Import(DemoApplicationConfiguration::class)
-@SpringBootApplication(scanBasePackageClasses = [BasePackageScan::class])
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan(basePackageClasses = [BasePackageScan::class])
 class DemoApplication(private val webdriver: Webdriver) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
         webdriver.run()
