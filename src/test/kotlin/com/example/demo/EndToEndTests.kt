@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(classes = [DemoApplication::class])
+// TODO AGB - the bad side effect happens twice
 class EndToEndTests {
 
     @Autowired
