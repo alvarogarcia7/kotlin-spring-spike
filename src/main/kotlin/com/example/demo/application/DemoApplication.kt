@@ -3,7 +3,6 @@ package com.example.demo.application
 import com.example.demo.BasePackageScan
 import com.example.demo.configuration.DemoApplicationConfiguration
 import com.example.demo.infrastructure.Webdriver
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -12,10 +11,7 @@ import org.springframework.context.annotation.Import
 
 @Import(DemoApplicationConfiguration::class)
 @SpringBootApplication(scanBasePackageClasses = [BasePackageScan::class])
-class DemoApplication : ApplicationRunner {
-    @Autowired
-    lateinit var webdriver: Webdriver;
-
+class DemoApplication(private val webdriver: Webdriver) : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
         webdriver.run()
         println("Received args:")
