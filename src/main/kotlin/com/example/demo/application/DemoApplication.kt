@@ -1,16 +1,17 @@
-package com.example.demo
+package com.example.demo.application
 
+import com.example.demo.BasePackageScan
+import com.example.demo.configuration.DemoApplicationConfiguration
+import com.example.demo.infrastructure.Webdriver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
-import org.springframework.stereotype.Component
 
 @Import(DemoApplicationConfiguration::class)
-@SpringBootApplication
+@SpringBootApplication(scanBasePackageClasses = [BasePackageScan::class])
 class DemoApplication : ApplicationRunner {
     @Autowired
     lateinit var webdriver: Webdriver;
@@ -27,21 +28,6 @@ class DemoApplication : ApplicationRunner {
         }
     }
 
-}
-
-@Configuration
-class DemoApplicationConfiguration
-
-@Component
-class Webdriver {
-
-    constructor() {
-        println("Webdriver constructor")
-    }
-
-    fun run() {
-        for (i in 1..10) println("BAD SIDE EFFECT!")
-    }
 }
 
 fun main(args: Array<String>) {
